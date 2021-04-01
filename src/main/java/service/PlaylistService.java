@@ -35,6 +35,7 @@ public class PlaylistService extends RequestSpec {
 
     }
     public String getCreatedPlayListId(Response playlistResponse){
+
         GetCreatePlayListResponseModel as = playlistResponse.as(GetCreatePlayListResponseModel.class);
         return as.getId();
     }
