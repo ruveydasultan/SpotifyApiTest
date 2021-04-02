@@ -5,16 +5,17 @@ public class RequestMaps {
 
 
     public Map<String,Object> headersMap(){
-        String token = "BQAeg2WR62kqeQphboI95ELZLZRAIJiwFrPcKJx9flCpPyw684XS3ut1qw951vs9qign1qCp_ABldkBOrMP9COYIw58J6d7VP2QlocCns2tgevL5fUlqOKl2bqUjeiIbF3En23WGv3brZN8sLP1IRc91Qh1uu8U2FZJmS6NFBaGtqmMpZeBjdlSSg6L9ruIMzHur8RytSZkc7Ydzun0zDOCdjSa8QB7MdhMaWhNCWoVqfQx35m-GA9flK_9yB764hVN3qJt3UXwMVflu6m5Yxo_fGToC03pIxY6DmhPu";
+        String token = "BQC1Ycjkshvsw7YMFfqLaSs5UDyD1JF5eNBiYUfsJ1ob2bkP2z46eBO2-Qx2fOlJ718NRF9aW-WYuZKBFXc2RqEMAIRa81m13mQgQDYrlqTjiQ4hb2iP__tQcpFGnfZJkZqiAT6g1Et4Q_fQS7ObkVdfT496d7KK2QtZyLKnDO_ntyCq_M88dK42g4xHNoyOvYQliIp943qPXAEg_GY38KYyYqiRM0aDe7Ur2650oB4bIXJn_aIHM-jOHaxAYrGUU2HzvudbOKCBO8qogcPKisg8Ft6-8sbUzbsuFyqF";
         Map<String, Object> headers = new HashMap<>();
         headers.put("Content-Type" , "application/json; charset=UTF-8");
         headers.put("Authorization", "Bearer " + token);
         return headers;
     }
 
-    public Map<String,Object> getPlaylistByIdParamsMap(String playlistId){
+    public Map<String,Object> getPlaylistByIdParamsMap(String playlistId, String market){
         Map<String, Object> params = new HashMap<>();
         params.put("playlist_id", playlistId);
+        params.put("market", market);
         return params;
     }
     public Map<String,Object> searchParamsMap(String trackName, String type, String market, String limit){
@@ -27,7 +28,7 @@ public class RequestMaps {
     }
 
 
-    public Map<String,Object> addItemsToPlaylistParamsMap(String playlistId, String trackUri){
+    public Map<String,Object> addItemsToPlaylistParamsMap(String playlistId, Object trackUri){
         Map<String, Object> params = new HashMap<>();
         params.put("playlist_id", playlistId);
         params.put("uris",trackUri);
@@ -38,6 +39,18 @@ public class RequestMaps {
         params.put("playlist_id", playlistId);
         params.put("market", "TR");
         params.put("limit", "1");
+        return params;
+    }
+    public Map<String,Object> getTopTracksParamsMap(String artistId){
+        Map<String, Object> params = new HashMap<>();
+        params.put("id", artistId);
+        params.put("market", "TR");
+        return params;
+    }
+
+    public Map<String,Object> deleteTrackParams(String playlistId){
+        Map<String, Object> params = new HashMap<>();
+        params.put("playlist_id", playlistId);
         return params;
     }
 

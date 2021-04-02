@@ -15,5 +15,10 @@ public class ResponseSpec {
                 .expectStatusCode(HttpStatus.SC_CREATED)
                 .build();
     }
+    public static ResponseSpecification checkStatusGONE(){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(HttpStatus.SC_GONE)
+                .build();
+    }
 
 }

@@ -1,17 +1,13 @@
 package service;
 
-import com.google.common.io.Resources;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import model.GetCreatePlayListResponseModel;
-import org.json.JSONObject;
 import spec.RequestSpec;
 
 import java.io.IOException;
-import java.net.URL;
-import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,7 +49,7 @@ public class PlaylistService extends RequestSpec {
                 .extract()
                 .response();
     }
-    public List getItems(Response itemsResponse){
+    public List<Map> getItems(Response itemsResponse){
         return itemsResponse.jsonPath().getList("items");
     }
 

@@ -28,7 +28,7 @@ public class ListTest extends BaseServiceTest {
 
         myPlayListId = playlistService.getCreatedPlayListId(playlistResponse);//Oluşturduğun playlistin Response modelinden playlist id'i al
 
-       Map<String, Object> playlistByIdParams = requestMaps.getPlaylistByIdParamsMap(myPlayListId);
+       Map<String, Object> playlistByIdParams = requestMaps.getPlaylistByIdParamsMap(myPlayListId,"tr");
        Response itemsPlayListResponse = playlistService.getAPlaylistItems(headers,playlistByIdParams,myPlayListId,ResponseSpec.checkStatusCodeOk());
        boolean isEmpty = playlistService.getItems(itemsPlayListResponse).isEmpty();
        assertTrue(isEmpty);//ALDIĞIN ID İLE YENİ PLAYLISTIN İÇİ BOŞ MU KONTROL ET.

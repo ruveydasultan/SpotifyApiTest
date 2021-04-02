@@ -34,4 +34,8 @@ public class SearchService extends RequestSpec {
         ArrayList arrayList = searchResponse.path("tracks.items");
         return arrayList.get(0).toString();
     }
+    public String getArtistsItems(Response searchResponse){
+        ArrayList arrayList = searchResponse.path("artists.items");
+        return arrayList.get(0).toString();
+    }
 }
